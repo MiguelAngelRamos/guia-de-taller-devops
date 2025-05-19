@@ -1,14 +1,10 @@
-El error que estás viendo:
-
 ```
 permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock
 ```
 
 indica que **el usuario que ejecuta Jenkins no tiene permisos para usar Docker** en la VM `192.168.1.69`.
 
----
 
-## ✅ Soluciones
 
 ### 🔧 Opción 1: Agregar el usuario `jenkins` al grupo `docker`
 
@@ -58,5 +54,3 @@ docker ps
 Si ves la lista de contenedores sin errores, Jenkins ya tiene permisos sobre Docker.
 
 ---
-
-¿Te gustaría que agregue una nota de este ajuste en la guía de CI/CD para tus estudiantes?
