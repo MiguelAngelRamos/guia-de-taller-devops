@@ -173,6 +173,3 @@ O más seguro aún:
 ps aux | grep jenkins | grep java
 ```
 
----
-
-¿Deseas que agregue una sección para instalar plugins esenciales (Git, Docker, Pipelines) o para preparar Jenkins para despliegues automáticos?
