@@ -1,8 +1,3 @@
-## 🧠 ¿Por qué hacerlo?
-
-Porque `app.midominio.local` no es un dominio real de Internet, sino uno **ficticio/local**, y Windows no sabrá resolverlo a menos que se lo indiques explícitamente.
-
----
 
 ## 🛠️ Pasos para editar el archivo `hosts` en Windows
 
