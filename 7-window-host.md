@@ -1,7 +1,3 @@
-¡Exactamente, Miguel! ✅ Como tienes tu **Ubuntu Server virtualizado en VirtualBox** y quieres acceder desde **Windows (tu host)** usando un nombre de dominio como `app.midominio.local`, debes modificar el archivo `hosts` **en Windows** para que ese nombre apunte a la IP del servidor.
-
----
-
 ## 🧠 ¿Por qué hacerlo?
 
 Porque `app.midominio.local` no es un dominio real de Internet, sino uno **ficticio/local**, y Windows no sabrá resolverlo a menos que se lo indiques explícitamente.
