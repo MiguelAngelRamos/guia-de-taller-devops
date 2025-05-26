@@ -202,9 +202,6 @@ Ver los contenedores en cualquier estado
 docker ps -a 
 ```
 
-
-```
-
 ### 2.2 Instalar NGINX
 
 ```bash
