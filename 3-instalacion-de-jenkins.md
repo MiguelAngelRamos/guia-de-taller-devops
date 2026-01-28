@@ -1,5 +1,5 @@
 
-# 🚀 Guía Completa: Instalar Jenkins en Ubuntu Server con Amazon Corretto 17
+# 🚀 Guía Completa: Instalar Jenkins en Ubuntu Server con Amazon Corretto 21
 
 > ✅ Compatible con Ubuntu 20.04 y 22.04
 > ☕ Utiliza Amazon Corretto 17 (OpenJDK mantenido por AWS)
