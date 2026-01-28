@@ -16,47 +16,63 @@ sudo apt update && sudo apt upgrade -y
 
 ---
 
-## 🔹 Paso 2: Instalar Amazon Corretto 17
+## 🔹 Paso 2: Instalar Amazon Corretto 21
 
-### 2.1. Instalar requisitos base
+### 1. Actualizar e instalar dependencias
 
-```bash
-sudo apt install -y wget gnupg
-```
-
-### 2.2. Importar la clave GPG del repositorio de Amazon
+Primero, asegúrate de que tu sistema y las herramientas necesarias (`wget` y `gnupg`) estén actualizados.
 
 ```bash
-wget -O- https://apt.corretto.aws/corretto.key | sudo gpg --dearmor -o /usr/share/keyrings/corretto-keyring.gpg
+sudo apt-get update && sudo apt-get install -y wget gnupg
+
 ```
 
-### 2.3. Agregar el repositorio de Corretto
+### 2. Agregar la clave GPG y el repositorio de Corretto
+
+Amazon firma sus paquetes para garantizar su autenticidad. Vamos a descargar su clave y añadir el repositorio a tu lista de fuentes.
 
 ```bash
-echo "deb [signed-by=/usr/share/keyrings/corretto-keyring.gpg] https://apt.corretto.aws stable main" | \
-  sudo tee /etc/apt/sources.list.d/corretto.list
+# Descargar la clave y guardarla en el llavero del sistema
+wget -O - https://apt.corretto.aws/corretto.key | sudo gpg --dearmor -o /usr/share/keyrings/corretto-keyring.gpg
+
+# Añadir el repositorio a las fuentes de apt
+echo "deb [signed-by=/usr/share/keyrings/corretto-keyring.gpg] https://apt.corretto.aws stable main" | sudo tee /etc/apt/sources.list.d/corretto.list
+
 ```
 
-### 2.4. Instalar Corretto 17
+### 3. Instalar Corretto 21
+
+Ahora actualizamos la lista de paquetes nuevamente e instalamos la versión 21.
 
 ```bash
-sudo apt update
-sudo apt install -y java-17-amazon-corretto-jdk
+sudo apt-get update
+sudo apt-get install -y java-21-amazon-corretto-jdk
+
 ```
 
-### 2.5. Verificar la instalación
+### 4. Verificar la instalación
+
+Comprueba que se instaló correctamente ejecutando:
 
 ```bash
 java -version
+
 ```
 
-Debes ver algo como:
+*Deberías ver una salida que mencione "Corretto-21".*
+
+---
+
+### Paso Extra Importante: Configurar como predeterminado
+
+Si tienes otras versiones de Java instaladas en ese Ubuntu, es posible que el sistema no use Corretto 21 por defecto. Para asegurarte de que Jenkins use esta versión, ejecuta:
 
 ```bash
-openjdk version "17.x.x" 202x-xx-xx LTS
-OpenJDK Runtime Environment Corretto-17.x.x
-OpenJDK 64-Bit Server VM Corretto-17.x.x
+sudo update-alternatives --config java
+
 ```
+
+Aparecerá una lista. Escribe el **número** correspondiente a la ruta que diga `/usr/lib/jvm/java-21-amazon-corretto-jdk/...` y presiona Enter.
 
 ---
 
