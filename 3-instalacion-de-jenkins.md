@@ -30,14 +30,16 @@ sudo apt-get update && sudo apt-get install -y wget gnupg
 ### 2. Agregar la clave GPG y el repositorio de Corretto
 
 Amazon firma sus paquetes para garantizar su autenticidad. Vamos a descargar su clave y añadir el repositorio a tu lista de fuentes.
+# Descargar la clave y guardarla en el llavero del sistema
 
 ```bash
-# Descargar la clave y guardarla en el llavero del sistema
 wget -O - https://apt.corretto.aws/corretto.key | sudo gpg --dearmor -o /usr/share/keyrings/corretto-keyring.gpg
+```
 
 # Añadir el repositorio a las fuentes de apt
-echo "deb [signed-by=/usr/share/keyrings/corretto-keyring.gpg] https://apt.corretto.aws stable main" | sudo tee /etc/apt/sources.list.d/corretto.list
 
+```bash
+echo "deb [signed-by=/usr/share/keyrings/corretto-keyring.gpg] https://apt.corretto.aws stable main" | sudo tee /etc/apt/sources.list.d/corretto.list
 ```
 
 ### 3. Instalar Corretto 21
